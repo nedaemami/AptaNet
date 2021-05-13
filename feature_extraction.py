@@ -20,14 +20,14 @@ from sys import argv
 aa_20 = ['A','C','D','E','F','G','H','I','K','L','M','N','P','Q','R','S','T','V','W','Y']
 
 #count_amino_acids
-apt=input('Please Enter Aptamer Sequance:')
+apt=input('Please Enter Aptamer Sequence:')
 
-target=input("Please Enter Protein Sequance:")
+target=input("Please Enter Target Protein Sequence:")
 
 for key in target:
     if key not in aa_20:
-        print( key+' not in 20 native amino acid !!!')
-        target=(input("Plz Enter target sequance:"))        
+        print( key+' is not a legitimate native amino acid! ')
+        target=(input("Please Enter Target Protein Sequence:"))        
 
 
 list_aa=[]
