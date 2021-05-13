@@ -8,7 +8,6 @@ Original file is located at
 """
 
 from collections import Counter
-import pandas as pd
 import numpy as np
 from imblearn.under_sampling import NeighbourhoodCleaningRule
 from sklearn.model_selection import train_test_split
@@ -27,7 +26,6 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from keras.utils import to_categorical
 from collections import Counter
-import sklearn
 from keras.layers import Dense
 from keras.layers import Dropout
 from Sklearn.Cross_Validation import cross_val_score
@@ -47,7 +45,7 @@ from sklearn.datasets import make_classification
 
 
 # Load dataset
-dataset = pandas.read_csv("suppliementary Table S1.csv")
+dataset = pandas.read_csv("Supplementary_Table_S1.csv")
 
 x=dataset.iloc[: ,1:640]
 
