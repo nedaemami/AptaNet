@@ -3,7 +3,7 @@ AptaNet as a Deep Learning approach for Aptamer-Protein Interaction Prediction
 
 Repository to following paper: https://www.nature.com/articles/s41598-021-85629-0#Sec23
 
-=== 
+
 Help 
 ===
 
@@ -15,7 +15,7 @@ Help
 - I am in the process of fixing it and trying to use it.  
 
 
-===
+
 Dependencies, that I know of so far: 
 ===
 
@@ -31,11 +31,11 @@ Dependencies, that I know of so far:
 
 - pip install keras
 
-===
+
 Sidenotes: 
 ===
 repDNA has some pitfalls
 
 On Windows you need to elevate your CMD. 
-You also might need to change some files of repDNA, so you won't get "Module not found" Errors. 
+You also might need to change some files of repDNA, so you won't get those "Module not found" errors. 
 See my fork of repDNA for the fix. 
