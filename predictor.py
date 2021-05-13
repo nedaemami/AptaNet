@@ -7,48 +7,28 @@ Original file is located at
     https://colab.research.google.com/drive/1Wy6sj_pwFDr3ET8Yw5hY0sq7exGgWT66
 """
 
-from collections import Counter
 import numpy as np
 from imblearn.under_sampling import NeighbourhoodCleaningRule
-from sklearn.model_selection import train_test_split
 import pandas
-import matplotlib.pyplot as plt
+
 import keras
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation
-from keras.optimizers import SGD
-from sklearn.model_selection import StratifiedKFold
-from sklearn.decomposition import PCA
-from sklearn.decomposition import IncrementalPCA
-from keras import regularizers
-from keras.wrappers.scikit_learn import KerasClassifier
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
-from keras.utils import to_categorical
-from collections import Counter
 from keras.layers import Dense
-from keras.layers import Dropout
-from Sklearn.Cross_Validation import cross_val_score
-from sklearn.model_selection import cross_val_score
+
+from keras.models import Sequential
+from keras.layers import Dense
+
+from keras.layers import Dense
 from imblearn.under_sampling import NeighbourhoodCleaningRule
-from sklearn.model_selection import KFold
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.under_sampling import NearMiss
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.cross_validation import train_test_split
-from sklearn.cross_validation import cross_val_score
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import make_classification
+from sklearn.feature_selection import SelectFromModel
 
 
 # Load dataset
-dataset = pandas.read_csv("Supplementary_Table_S1.csv")
+dataset = pandas.read_csv("./Data/Supplementary_Table_S1.csv", ";")
 
 x=dataset.iloc[: ,1:640]
-
+print(x)
 #print(x)
 y=dataset['Class']
 
