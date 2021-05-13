@@ -3,6 +3,12 @@ AptaNet as a Deep Learning approach for Aptamer-Protein Interaction Prediction
 
 Repository to following paper: https://www.nature.com/articles/s41598-021-85629-0#Sec23
 
+===
+This Deep Learning solution uses TensorFlow
+===
+
+
+
 Right now it is not useable as is. 
 I am in the process of fixing it and trying to use it.  
 
