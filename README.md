@@ -10,10 +10,16 @@ I am in the process of fixing it and trying to use it.
 Dependencies, that I know of so far: 
 
 pip install matplotlib
+
 pip install sklearn
+
 pip install pandas
+
 pip install imblearn
+
 pip install repDNA
+
+pip install keras
 
 
 Sidenotes: 
