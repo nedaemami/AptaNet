@@ -23,70 +23,73 @@ from imblearn.under_sampling import NeighbourhoodCleaningRule
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectFromModel
 
-
 # Load dataset
 dataset = pandas.read_csv("./Data/Supplementary_Table_S1.csv", ";")
 
-x=dataset.iloc[: ,1:640]
+x = dataset.iloc[:, 1:640]
 print(x)
-#print(x)
-y=dataset['Class']
+# print(x)
+y = dataset['Class']
+print(y)
 
 clf = RandomForestClassifier(n_estimators=300, max_depth=9,
                              random_state=0)
-clf.fit(x, y) 
-clf.feature_importances_  
+clf.fit(x, y)
+clf.feature_importances_
 model = SelectFromModel(clf, prefit=True)
 x = model.transform(x)
-x.shape  
-
+x.shape
 
 ncr = NeighbourhoodCleaningRule()
 x_resampled, y_resampled = ncr.fit_resample(x, y)
 
+print(x_resampled)
+print(y_resampled)
 
-#Optimization Algorithm
-opt=keras.optimizers.RMSprop(lr=0.00014, rho=0.9, epsilon=None, decay=0.0)
+# Optimization Algorithm
+opt = keras.optimizers.RMSprop(learning_rate=0.00014, rho=0.9, epsilon=None, decay=0.0)
 
-#Multi Layer Perceptron Model
+# Multi Layer Perceptron Model
 model = Sequential()
-model.add(Dense(128, input_dim=639, activation='relu'))
+model.add(Dense(128, input_dim=193, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(128, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(128, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(128, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(128, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(128, activation='relu'))
 keras.layers.AlphaDropout(0.3, noise_shape=None, seed=None)
-  
+
 model.add(Dense(1, activation='sigmoid'))
-  
+
 model.compile(loss='binary_crossentropy',
-                optimizer=opt,
-                metrics=['accuracy'])
-  
+              optimizer=opt,
+              metrics=['accuracy'])
 
 # Estimator
 
-model.fit(x_resampled, y_resampled,
-          epochs=200,
-          batch_size=310)
-score = model.evaluate(x_resampled, y_resampled, batch_size=5000)
+# model.fit(x_resampled, y_resampled, epochs=200)
+model.load_weights('./checkpoints/a')
+score = model.evaluate(x_resampled, y_resampled)
+
+# save model for future use
+model.save_weights('./checkpoints/a')
 
 # Predictor
-f=np.expand_dims(f, axis=0)
+# f = np.expand_dims(f, axis=0)
+f = ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]
 preds = model.predict(f)
 model.predict_classes(f, batch_size=1, verbose=1)
 
-#Print the Results
+# Print the Results
 print(preds)
-print(pp)
+# print(pp)
