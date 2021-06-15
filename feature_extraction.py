@@ -7,31 +7,27 @@ Original file is located at
     https://colab.research.google.com/drive/1Wy6sj_pwFDr3ET8Yw5hY0sq7exGgWT66
 """
 
-import itertools
-import numpy as np
 import matplotlib.pyplot as plt
 
-from sklearn import svm, datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
 # ##########################################
 ##pseAAC encoding
 from sys import argv
-import string
 
 #20 native amino acids according to the alphabetical order of their single-letter codes
 aa_20 = ['A','C','D','E','F','G','H','I','K','L','M','N','P','Q','R','S','T','V','W','Y']
 
 #count_amino_acids
-apt=raw_input('Please Enter Aptamer Sequance:')
+apt=input('Please Enter Aptamer Sequence:')
 
-target=raw_input("Please Enter Protein Sequance:")
+target=input("Please Enter Target Protein Sequence:")
 
 for key in target:
     if key not in aa_20:
-        print( key+' not in 20 native amino acid !!!')
-        target=(input("Plz Enter target sequance:"))        
+        print( key+' is not a legitimate native amino acid! ')
+        target=(input("Please Enter Target Protein Sequence:"))        
 
 
 list_aa=[]
@@ -861,16 +857,11 @@ from sklearn import svm, datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-# ##########################################
+# #############A#############################
 
-
-import repDNA
-import csv
-
-from repDNA.nac import Kmer
+from repDNA import nac
 #from repDNA.nac import Kmer
 #kmer = Kmer(k=2)
-from repDNA.util import get_data
 
 #apt=raw_input('enter apt:')
 list1=[apt]
@@ -879,7 +870,7 @@ list1=[apt]
 print (list1)
 print(type(list1))
 
-kmer = Kmer(k=4, normalize=True, upto=True)
+kmer = nac.Kmer(k=4, normalize=True, upto=True)
 a= kmer.make_kmer_vec(list1)
 
 
